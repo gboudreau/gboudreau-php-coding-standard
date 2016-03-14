@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<ruleset name="GBoudreauCodingStandard">
+
+    <ini name="memory_limit" value="128M"/>
+
+    <exclude-pattern>./node_modules/*</exclude-pattern>
+    <exclude-pattern>./vendor/*</exclude-pattern>
+
+    <rule ref="PEAR.NamingConventions.ValidFunctionName.FunctionNoCapital">
+        <exclude-pattern>./functions.inc.php</exclude-pattern>
+    </rule>
+    <rule ref="PEAR.NamingConventions.ValidFunctionName.FunctionUnderscore">
+        <exclude-pattern>./functions.inc.php</exclude-pattern>
+    </rule>
+
+    <rule ref="PEAR.NamingConventions.ValidClassName.StartWithCapital">
+        <exclude-pattern>./classes/i18n.php</exclude-pattern>
+    </rule>
+
+    <rule ref="PEAR">
+        <!-- "Line exceeds 85 characters";
+             We prefer having no limit. -->
+        <exclude name="Generic.Files.LineLength.TooLong" />
+
+        <!-- "Inline control structures are discouraged";
+             Our own version allows the 'continue' statement inline.
+             See Sniffs/ControlStructures/InlineControlStructureSniff.php -->
+        <exclude name="Generic.ControlStructures.InlineControlStructure.Discouraged" />
+
+        <!-- "TRUE, FALSE and NULL must be lowercase";
+             We prefer uppercase.
+             See Sniffs/PHP/UpperCaseConstantSniff.php -->
+        <exclude name="Generic.PHP.LowerCaseConstant.Found" />
+
+        <!-- "File is being conditionally included; use "include"/"include_once" instead";
+             We prefer to always use require, as it throws an error instead of a warning, when the file is not found. -->
+        <exclude name="PEAR.Files.IncludingFile.UseInclude" />
+        <exclude name="PEAR.Files.IncludingFile.UseIncludeOnce" />
+
+        <!-- "Opening brace should be on a new line";
+             We prefer opening brace on same line. -->
+        <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
+    </rule>
+
+    <rule ref="Generic.Formatting.DisallowMultipleStatements" />
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+    <rule ref="PSR2.Classes.PropertyDeclaration">
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore" />
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration" />
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration">
+        <exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakIndent" />
+    </rule>
+    <rule ref="PSR2.Files.EndFileNewline.NoneFound" />
+    <rule ref="PSR2.Methods.FunctionCallSignature" />
+    <rule ref="Squiz.Classes.ValidClassName">
+        <exclude-pattern>./classes/i18n.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <properties>
+            <property name="equalsSpacing" value="1" />
+        </properties>
+    </rule>
+    <rule ref="Squiz.PHP.LowercasePHPFunctions" />
+    <rule ref="Squiz.Scope.MethodScope" />
+    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+</ruleset>
