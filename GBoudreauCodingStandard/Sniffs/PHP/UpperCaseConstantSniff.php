@@ -29,7 +29,7 @@
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class NetliftCodingStandard_Sniffs_PHP_UpperCaseConstantSniff implements PHP_CodeSniffer_Sniff
+class GBoudreauCodingStandard_Sniffs_PHP_UpperCaseConstantSniff implements PHP_CodeSniffer_Sniff
 {
 
     /**
