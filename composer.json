@@ -1,0 +1,20 @@
+{
+    "name": "gboudreau/gboudreau-php-coding-standard",
+    "type": "library",
+    "description": "PHP coding standard I use.",
+    "keywords": ["standard",""],
+    "homepage": "https://github.com/gboudreau/gboudreau-php-coding-standard",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Guillaume Boudreau",
+            "email": "guillaume@pommepause.com",
+            "homepage": "https://www.pommepause.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "3.*",
+        "php": ">=7.0"
+    }
+}
