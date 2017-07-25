@@ -1,8 +1,11 @@
 <?php
+
+namespace GBoudreauCodingStandard\Sniffs\ControlStructures;
+
 /**
  * GBoudreauCodingStandard_Sniffs_ControlStructures_InlineControlStructureSniff.
  *
- * This is a slightly modifier version of Generic_Sniffs_ControlStructures_InlineControlStructureSniff 
+ * This is a slightly modifier version of Generic_Sniffs_ControlStructures_InlineControlStructureSniff
  * that allows continue; statements on the same line as the if statement, and without curly brackets.
  *
  * PHP version 5
@@ -30,7 +33,7 @@
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class GBoudreauCodingStandard_Sniffs_ControlStructures_InlineControlStructureSniff implements PHP_CodeSniffer_Sniff
+class InlineControlStructureSniff implements \PHP_CodeSniffer\Sniffs\Sniff
 {
 
     /**
@@ -75,13 +78,13 @@ class GBoudreauCodingStandard_Sniffs_ControlStructures_InlineControlStructureSni
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the
-     *                                        stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
+     * @param int                         $stackPtr  The position of the current token in the
+     *                                               stack passed in $tokens.
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(\PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -178,7 +181,7 @@ class GBoudreauCodingStandard_Sniffs_ControlStructures_InlineControlStructureSni
                 $type = $tokens[$end]['code'];
                 $end  = $tokens[$end]['scope_closer'];
                 if ($type === T_DO || $type === T_IF || $type === T_ELSEIF) {
-                    $next = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($end + 1), null, true);
+                    $next = $phpcsFile->findNext(\PHP_CodeSniffer\Util\Tokens::$emptyTokens, ($end + 1), null, true);
                     if ($next === false) {
                         break;
                     }
