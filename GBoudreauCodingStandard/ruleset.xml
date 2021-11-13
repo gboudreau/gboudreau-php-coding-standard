@@ -40,6 +40,17 @@
         <!-- "Opening brace should be on a new line";
              We prefer opening brace on same line. -->
         <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
+
+        <!-- No need to always document all classes/functions -->
+        <exclude name="PEAR.Commenting.ClassComment.Missing" />
+        <exclude name="PEAR.Commenting.FunctionComment.Missing" />
+        <exclude name="PEAR.Commenting.FileComment.Missing" />
+
+        <!-- For PHP8 Match (until phpcs supports it correctly) -->
+        <exclude name="PEAR.WhiteSpace.ScopeIndent.IncorrectExact" />
+
+        <!-- Allow short echo tag -->
+        <exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound" />
     </rule>
 
     <rule ref="Generic.Formatting.DisallowMultipleStatements" />
